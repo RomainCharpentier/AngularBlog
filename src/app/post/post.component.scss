@@ -1,0 +1,16 @@
+.icon-button {
+    :hover {
+        color: blue;
+    }
+}
+
+p {
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+}
+
+.card {
+    max-width: 50%;
+}
