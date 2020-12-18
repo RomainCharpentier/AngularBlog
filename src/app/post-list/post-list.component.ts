@@ -12,7 +12,9 @@ export class PostListComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {
-  }
+  ngOnInit(): void { }
 
+  removeItem(title: string): void {
+    this.posts = this.posts.filter(post => post.title !== title);
+  }
 }

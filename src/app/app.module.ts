@@ -11,7 +11,7 @@ import { PostListComponent } from './post-list/post-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
-  declarations: [		
+  declarations: [
     AppComponent,
       PostComponent,
       PostListComponent
