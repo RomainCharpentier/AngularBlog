@@ -8,7 +8,7 @@ import { LoadingService } from './shared/services/loading.service';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  title = 'angular-boilerplate';
+  title = 'Angular Blog';
   loading = false;
 
   constructor(

@@ -1,17 +1,22 @@
 <!-- Loading spinner -->
-<div *ngIf="loading" class="loading-container flex-content-center">
+<div *ngIf="loading" class="loading-container flex flex-content-center">
   <mat-progress-spinner
     color="primary"
     mode="indeterminate">
   </mat-progress-spinner>
 </div>
 
-<!-- the application -->
-<div class="app-root">
+<!-- App container -->
+<div class="app-container">
   <div class="app-header">
-    <!--<app-header></app-header>-->
+		<app-header></app-header>
   </div>
-  <div class="app-content">
+	<!-- container for the content. If a footer is present, add the with-footer class to ensure height of the content area is properly set -->
+  <div class="app-content with-footer">
     <router-outlet></router-outlet>
   </div>
+	<!-- container for the header which can be changed based on page via HeaderService.setHeader method -->
+	<div class="app-footer">
+		<app-footer></app-footer>
+	</div>
 </div>

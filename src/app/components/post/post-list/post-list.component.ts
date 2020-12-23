@@ -1,7 +1,7 @@
-import { Post } from '../../shared/models/post.model';
+import { Post } from '../../../shared/models/post.model';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { PostService } from '../../shared/services/post.service';
+import { PostService } from '../../../shared/services/post.service';
 import { Subscription } from 'rxjs';
 
 @Component({
@@ -13,7 +13,7 @@ export class PostListComponent implements OnInit, OnDestroy {
 
   posts: Post[] = [];
 
-  constructor(private httpClient: HttpClient, private postService: PostService) {
+  constructor(private postService: PostService) {
   }
 
   ngOnInit(): void {
