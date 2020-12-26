@@ -13,6 +13,8 @@ import { PostListComponent } from './components/post/post-list/post-list.compone
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpRequestInterceptor } from './interceptors/http-request-interceptor';
 import { MaterialModule } from './shared/material.module';
+import { AuthService } from './shared/services/auth.service';
+import { SideBarComponent } from './components/side-bar/side-bar.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { MaterialModule } from './shared/material.module';
       PageNotFoundComponent,
       PostItemComponent,
       PostListComponent,
-      ShareDialogComponent
+      ShareDialogComponent,
+      SideBarComponent
    ],
   imports: [
     BrowserModule,
@@ -33,6 +36,7 @@ import { MaterialModule } from './shared/material.module';
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true},
+    AuthService
   ],
   bootstrap: [AppComponent]
 })

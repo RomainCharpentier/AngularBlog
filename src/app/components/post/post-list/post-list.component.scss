@@ -1,0 +1,23 @@
+.list-content {
+    display: flex;
+    * {
+        margin-left: 1vw;
+        margin-right: 1vw;
+    }
+    height: 100vh;
+}
+
+.list-menu {
+    flex-grow: 1;
+    background: lightblue;
+    min-width: 15vw;
+}
+
+.list-posts {
+    flex-grow: 5;
+    overflow: auto;
+}
+
+.list-title {
+    text-align: center;
+}
