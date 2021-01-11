@@ -2,9 +2,9 @@
     <h1>Posts</h1>
 </div>
 <div class="list-content">
-    <div class="list-menu">
+    <!-- <div class="list-menu">
         <app-side-bar></app-side-bar>
-    </div>
+    </div> -->
     <div class="list-posts">
         <app-post *ngFor="let post of posts" [title]="post.title" [content]="post.content" [like]="post.like" (remove)="removeItem(post.title)"></app-post>
     </div>

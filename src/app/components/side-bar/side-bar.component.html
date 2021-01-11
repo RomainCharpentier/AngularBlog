@@ -1,3 +1,25 @@
 <div class="side-bar">
-    <h1 class="textCentered">Menu</h1>
+  <h1 class="textCentered">Menu</h1>
+  <mat-grid-list cols="2" rowHeight="2:1">
+    <mat-grid-tile>
+      <button mat-mini-fab disabled aria-label="Example icon button with a home icon">
+        <mat-icon>home</mat-icon>
+      </button>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <button mat-mini-fab color="primary" aria-label="Example icon button with a menu icon">
+        <mat-icon>edit</mat-icon>
+      </button>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <button mat-mini-fab color="accent" aria-label="Example icon button with a plus one icon">
+        <mat-icon>plus_one</mat-icon>
+      </button>
+    </mat-grid-tile>
+    <mat-grid-tile>
+      <button mat-mini-fab color="warn" aria-label="Example icon button with a filter list icon">
+        <mat-icon>filter_list</mat-icon>
+      </button>
+    </mat-grid-tile>
+  </mat-grid-list>
 </div>

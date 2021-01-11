@@ -16,6 +16,8 @@
 .list-posts {
     flex-grow: 5;
     overflow: auto;
+    display: flex;
+    flex-wrap: wrap;
 }
 
 .list-title {

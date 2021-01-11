@@ -1,27 +1,32 @@
 .icon-button {
-    :hover {
-        color: blue;
-    }
-    position: absolute;
-    bottom: 0;
-    left: 0;
+  :hover {
+    color: blue;
+  }
+}
+
+.post-footer {
+  position: absolute;
+  bottom: 0;
+  left: 10px;
+}
+
+.icon-share {
+  left: 60px;
 }
 
 .right-align {
-    margin-left: auto;
+  margin-left: auto;
 }
 
 p {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-line-clamp: 3;
-    -webkit-box-orient: vertical;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
 }
 
 .card {
-    max-width: 30vw;
-    height: 20vh;
-    &:hover {
-        box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-    }
+  width: 315px;
+  height: 150px;
+  margin: 5px 5px;
 }

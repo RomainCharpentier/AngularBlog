@@ -3,7 +3,7 @@
     <mat-icon aria-hidden="false" aria-label="Like icon" mat-card-avatar>article</mat-icon>
     <mat-card-title>{{title}}</mat-card-title>
     <mat-card-subtitle>Crée le {{createdAt | date: 'dd/MM/yyyy'}}</mat-card-subtitle>
-    <button mat-button class="icon-button right-align" (click)="remove.emit()">
+    <button mat-icon-button class="icon-button right-align" (click)="remove.emit()">
       <mat-icon aria-hidden="false" aria-label="Delete icon">delete_outlined</mat-icon>
     </button>
   </mat-card-header>
@@ -15,10 +15,10 @@
   <mat-card-actions>
     <table>
       <tr>
-        <button mat-button class="icon-button" (click)="onLike()">
+        <button mat-icon-button class="icon-button post-footer" (click)="onLike()">
           <mat-icon aria-hidden="false" aria-label="Like icon">favorite_border</mat-icon> {{like}}
         </button>
-        <button mat-button class="icon-button" (click)="onShare()">
+        <button mat-icon-button class="icon-button icon-share post-footer" (click)="onShare()">
           <mat-icon aria-hidden="false" aria-label="Like icon">share_border</mat-icon>
         </button>
       </tr>
