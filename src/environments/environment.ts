@@ -1,7 +1,8 @@
 // This file can be replaced during build by using the `fileReplacements` array.
 // `ng build --prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
-import {version, name} from '../../package.json';
+
+import {name, version} from 'package.json';
 
 export const environment = {
   production: false,
@@ -9,10 +10,24 @@ export const environment = {
 };
 
 /**
+ * App version from package.json
+ */
+export const PROJECT_VERSION = version;
+
+/**
  * App name from package.json
- * @type {string}
  */
 export const PROJECT_NAME = name;
+
+/**
+ * The notification server public key for push notifications
+ */
+export const NOTIFICATION_SERVER_PUBLIC_KEY = '';
+
+/**
+ * Set to true for error dialogs to be shown
+ */
+export const DEBUG_DIALOGS = false;
 
 /*
  * For easier debugging in development mode, you can import the following file
