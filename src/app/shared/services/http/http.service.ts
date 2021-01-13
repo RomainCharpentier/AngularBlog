@@ -2,10 +2,10 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable, EMPTY } from 'rxjs';
-import { catchError } from 'rxjs/operators';
-import { ApiEndpoints, ApiMethod, ApiRouteToClass } from '../../interfaces/api.interface';
+import { catchError, map } from 'rxjs/operators';
 import { ErrorService } from '../error/error.service';
 import { environment } from '../../../../environments/environment';
+import { ApiMethod } from '../../interfaces/api.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -62,20 +62,5 @@ export class HttpService {
       return this.errorService.handleRequestError(error.status, error.error.message, error.error);
     }
     return EMPTY;
-  }
-  
-  /**
-   * Assumes an apiUrl like "/api/<something>/..." that matches
-   */
-  getRouteClass(apiUrl: string): any {
-    let clazz;
-    if (apiUrl) {
-      const pathKey = apiUrl.split('/')
-        .filter(Boolean)
-        .slice(0, 2)
-        .join('/');
-      clazz = ApiRouteToClass[`/${pathKey}`] || undefined;
-    }
-    return clazz;
   }
 }
