@@ -16,8 +16,10 @@
 .list-posts {
     flex-grow: 5;
     overflow: auto;
-    display: flex;
-    flex-wrap: wrap;
+}
+
+.list-posts > * {
+    margin: 0 auto;
 }
 
 .list-title {

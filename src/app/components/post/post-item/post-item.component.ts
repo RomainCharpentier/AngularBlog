@@ -9,6 +9,7 @@ import { ShareDialogComponent } from '../../share-dialog/share-dialog.component'
 })
 export class PostItemComponent implements OnInit {
 
+  @Input() id = 0;
   @Input() title = '';
   @Input() content = '';
   @Input() like = 0;
