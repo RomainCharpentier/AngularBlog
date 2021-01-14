@@ -12,16 +12,31 @@
       {{content}}
     </p>
   </mat-card-content>
-  <mat-card-actions>
-    <table>
-      <tr>
-        <button mat-icon-button class="icon-button post-footer" (click)="onLike()">
+  <mat-card-actions class="post-footer">
+    <mat-grid-list cols="6" rowHeight="3:1">
+      <!-- <mat-grid-tile colspan="2">
+        <button mat-icon-button class="icon-button" (click)="onLike()">
           <mat-icon aria-hidden="false" aria-label="Like icon">favorite_border</mat-icon> {{like}}
         </button>
-        <button mat-icon-button class="icon-button icon-share post-footer" (click)="onShare()">
-          <mat-icon aria-hidden="false" aria-label="Like icon">share_border</mat-icon>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="2">
+        0 commentaire
+      </mat-grid-tile> -->
+      <mat-grid-tile colspan="2">
+        <button mat-button (click)="onLike()">
+          <mat-icon aria-hidden="false" aria-label="Like icon">favorite_border</mat-icon> J'aime
         </button>
-      </tr>
-    </table>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="2">
+        <button mat-button (click)="onComment()">
+          <mat-icon class="material-icons-outlined" aria-hidden="false" aria-label="Comment icon">comment</mat-icon> Commenter
+        </button>
+      </mat-grid-tile>
+      <mat-grid-tile colspan="2">
+        <button mat-button (click)="onShare()">
+          <mat-icon aria-hidden="false" aria-label="Like icon">share_border</mat-icon> Partager
+        </button>
+      </mat-grid-tile>
+    </mat-grid-list>
   </mat-card-actions>
 </mat-card>

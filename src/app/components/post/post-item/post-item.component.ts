@@ -26,6 +26,10 @@ export class PostItemComponent implements OnInit {
     this.like++;
   }
 
+  onComment(): void {
+    console.log('comment');
+  }
+
   onShare(): void {
     console.log('share');
     const dialogRef = this.dialog.open(ShareDialogComponent, {
