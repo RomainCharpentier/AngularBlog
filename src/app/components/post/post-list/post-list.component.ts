@@ -1,8 +1,10 @@
-import { Post } from '../../../shared/models/post.model';
+import { Post } from './../../../shared/models/post.model';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { PostService } from '../../../shared/services/post/post.service';
 import { Subscription } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { WriteDialogComponent } from '../../write-dialog/write-dialog.component';
 
 @Component({
   selector: 'app-post-list',
@@ -13,7 +15,7 @@ export class PostListComponent implements OnInit, OnDestroy {
 
   posts: Post[] = [];
 
-  constructor(private postService: PostService) {
+  constructor(private postService: PostService, private dialog: MatDialog) {
   }
 
   ngOnInit(): void {
@@ -32,6 +34,17 @@ export class PostListComponent implements OnInit, OnDestroy {
       },
       err => console.log(err)
     );
+  }
+
+  createItem(): void {
+    console.log('create');
+    const dialogRef = this.dialog.open(WriteDialogComponent, {
+      width: '400px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+    });
   }
 
   removeItem(id: number): void {

@@ -1,0 +1,19 @@
+<h2 mat-dialog-title>Écrire un post</h2>
+
+<mat-dialog-content>
+
+  <mat-form-field>
+    <input matInput placeholder="Titre" [formControl]="title">
+  </mat-form-field>
+
+  <mat-form-field class="full-width">
+    <mat-label>Contenu</mat-label>
+    <textarea matInput [formControl]="content" rows="5"></textarea>
+  </mat-form-field>
+
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button class="mat-raised-button mat-primary" (click)="onSave()">Sauvegarder</button>
+  <button class="mat-raised-button" (click)="onClose()">Fermer</button>
+</mat-dialog-actions>

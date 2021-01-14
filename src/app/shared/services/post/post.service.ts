@@ -13,8 +13,20 @@ export class PostService {
 
   constructor(private httpService: HttpService) { }
 
-  getPosts(term?: any): Observable<Post[]> {
+  getPosts(): Observable<Post[]> {
     return this.httpService.requestCall(this.path, ApiMethod.GET);
+  }
+
+  getPost(id: number): Observable<Post[]> {
+    return this.httpService.requestCall(this.path, ApiMethod.GET, id);
+  }
+
+  createPost(post: Post): Observable<Post[]> {
+    return this.httpService.requestCall(this.path, ApiMethod.PUT, post);
+  }
+
+  deletePost(id: number): Observable<Post[]> {
+    return this.httpService.requestCall(this.path, ApiMethod.DELETE, id);
   }
 
 }

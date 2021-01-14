@@ -1,3 +1,4 @@
+import { WriteDialogComponent } from './components/write-dialog/write-dialog.component';
 import { ShareDialogComponent } from './components/share-dialog/share-dialog.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { AppFooterComponent } from './components/app-footer/app-footer.component';
@@ -15,6 +16,7 @@ import { HttpRequestInterceptor } from './interceptors/http-request-interceptor'
 import { MaterialModule } from './shared/material.module';
 import { AuthService } from './shared/services/auth.service';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -25,14 +27,16 @@ import { SideBarComponent } from './components/side-bar/side-bar.component';
       PostItemComponent,
       PostListComponent,
       ShareDialogComponent,
-      SideBarComponent
+      SideBarComponent,
+      WriteDialogComponent
    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true},

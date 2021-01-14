@@ -6,6 +6,9 @@
         <app-side-bar></app-side-bar>
     </div> -->
     <div class="list-posts">
+        <button mat-button (click)="createItem()">
+          <mat-icon aria-hidden="false" aria-label="Create icon">create</mat-icon> Écrire
+        </button>
         <app-post *ngFor="let post of posts" [id]="post.id" [title]="post.title" [content]="post.content" [like]="post.like" (remove)="removeItem(post.id)"></app-post>
     </div>
 </div>

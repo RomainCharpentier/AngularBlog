@@ -1,12 +1,12 @@
-import { Injectable } from '@angular/core';
+import { Injectable, isDevMode } from '@angular/core';
 import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
   HttpInterceptor, HttpResponse
 } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import {catchError, map} from 'rxjs/operators';
+import { Observable, timer } from 'rxjs';
+import { catchError, delayWhen, map } from 'rxjs/operators';
 import { LoadingService } from '../shared/services/loading/loading.service';
 
 /**
@@ -24,6 +24,13 @@ export class HttpRequestInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     this.loadingService.setLoading(true, request.url);
     return next.handle(request)
+      .pipe(delayWhen(() => {
+        let delay = 0;
+        if (isDevMode()) {
+          delay = 2000;
+        }
+        return timer(delay);
+      }))
       .pipe<any>(catchError((err) => {
         this.loadingService.setLoading(false, request.url);
         return err;

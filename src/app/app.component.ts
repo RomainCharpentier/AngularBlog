@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, isDevMode, OnInit } from '@angular/core';
 import { delay } from 'rxjs/operators';
 import { LoadingService } from './shared/services/loading/loading.service';
 
@@ -13,7 +13,9 @@ export class AppComponent implements OnInit {
 
   constructor(
     private loadingService: LoadingService
-  ){ }
+  ){ 
+    console.log('isDevMode ? ', isDevMode());
+  }
 
   ngOnInit(): void{
     this.listenToLoading();
