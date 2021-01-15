@@ -10,7 +10,7 @@ import { ShareDialogComponent } from '../../share-dialog/share-dialog.component'
 export class PostItemComponent implements OnInit {
 
   @Input() id = 0;
-  @Input() title = '';
+  @Input() author = '';
   @Input() content = '';
   @Input() like = 0;
   @Input() createdAt: Date = new Date();
@@ -33,8 +33,7 @@ export class PostItemComponent implements OnInit {
   onShare(): void {
     console.log('share');
     const dialogRef = this.dialog.open(ShareDialogComponent, {
-      width: '250px',
-      data: { title: this.title, content: this.content }
+      width: '250px'
     });
 
     dialogRef.afterClosed().subscribe(result => {

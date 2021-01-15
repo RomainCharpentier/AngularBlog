@@ -18,9 +18,9 @@ export class WriteDialogComponent {
     @Inject(MAT_DIALOG_DATA) private data: any) { }
 
   onSave(): void {
-    console.log(this.title.value);
-    const newPost: Post = { title: this.title.value, content: this.content.value, id: 0, like: 0 };
-    console.log('create : ', newPost);
+    // console.log(this.title.value);
+    // const newPost: Post = { title: this.title.value, content: this.content.value, id: 0, like: 0 };
+    // console.log('create : ', newPost);
     // this.postService.createPost(newPost).subscribe((data: Post[]) => this.posts = data);
     this.dialogRef.close();
   }

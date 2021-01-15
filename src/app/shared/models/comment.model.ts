@@ -3,5 +3,4 @@ export interface Post {
     author: string;
     content: string;
     like: number;
-    comments: Comment[];
 }
