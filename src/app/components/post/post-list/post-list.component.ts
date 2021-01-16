@@ -20,31 +20,26 @@ export class PostListComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.postService.getPosts()
-    .subscribe(
-      data => {
-        this.posts = data;
-        // const post1: Post = {id: 0, title: 'test', content: 'content', like: 0};
-        // this.posts.push(post1);
-        // const post2: Post = {id: 0, title: 'test2', content: 'content2', like: 0};
-        // this.posts.push(post2);
-        // const post3: Post = {id: 0, title: 'test3', content: 'content3', like: 0};
-        // this.posts.push(post3);
-        // Il manque les id dans l'api
-        this.posts.forEach((post, index) => post.id = index);
-      },
-      err => console.log(err)
-    );
+      .subscribe(
+        data => {
+          this.posts = data;
+          // Il manque les id dans l'api
+          this.posts.forEach((post, index) => post.id = index);
+        }
+      );
   }
 
   createItem(): void {
     console.log('create');
-    const dialogRef = this.dialog.open(WriteDialogComponent, {
-      width: '400px'
-    });
+    // const dialogRef = this.dialog.open(WriteDialogComponent, {
+    //   width: '400px'
+    // });
 
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-    });
+    // dialogRef.afterClosed().subscribe(result => {
+    //   console.log('The dialog was closed');
+    // });
+    const post: Post = { id: 0, author: '', content: 'Contenu du post', like: 0, comments: [] };
+    this.postService.createPost(post).subscribe(() => {}, () => {}, () => this.posts.unshift(post));
   }
 
   removeItem(id: number): void {

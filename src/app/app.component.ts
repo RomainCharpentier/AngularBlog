@@ -13,7 +13,7 @@ export class AppComponent implements OnInit {
 
   constructor(
     private loadingService: LoadingService
-  ){ 
+  ){
     console.log('isDevMode ? ', isDevMode());
   }
 

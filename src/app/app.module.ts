@@ -17,6 +17,7 @@ import { MaterialModule } from './shared/material.module';
 import { AuthService } from './shared/services/auth.service';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { FakeBackendInterceptor } from './interceptors/fake-backend-interceptor';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true},
+    { provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true },
+    // { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    // { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: FakeBackendInterceptor, multi: true },
     AuthService
   ],
   bootstrap: [AppComponent]
