@@ -1,3 +1,4 @@
+import { RegisterComponent } from './components/register/register.component';
 import { WriteDialogComponent } from './components/write-dialog/write-dialog.component';
 import { ShareDialogComponent } from './components/share-dialog/share-dialog.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
@@ -16,8 +17,9 @@ import { HttpRequestInterceptor } from './interceptors/http-request-interceptor'
 import { MaterialModule } from './shared/material.module';
 import { AuthService } from './shared/services/auth.service';
 import { SideBarComponent } from './components/side-bar/side-bar.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FakeBackendInterceptor } from './interceptors/fake-backend-interceptor';
+import { LoginComponent } from './components/login/login.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { FakeBackendInterceptor } from './interceptors/fake-backend-interceptor'
       PostListComponent,
       ShareDialogComponent,
       SideBarComponent,
-      WriteDialogComponent
+      WriteDialogComponent,
+      LoginComponent,
+      RegisterComponent
    ],
   imports: [
     BrowserModule,
@@ -37,6 +41,7 @@ import { FakeBackendInterceptor } from './interceptors/fake-backend-interceptor'
     BrowserAnimationsModule,
     HttpClientModule,
     MaterialModule,
+    FormsModule,
     ReactiveFormsModule
   ],
   providers: [

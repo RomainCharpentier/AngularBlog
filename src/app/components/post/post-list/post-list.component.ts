@@ -31,15 +31,19 @@ export class PostListComponent implements OnInit, OnDestroy {
 
   createItem(): void {
     console.log('create');
-    // const dialogRef = this.dialog.open(WriteDialogComponent, {
-    //   width: '400px'
-    // });
+    const dialogRef = this.dialog.open(WriteDialogComponent, {
+      width: '400px'
+    });
 
-    // dialogRef.afterClosed().subscribe(result => {
-    //   console.log('The dialog was closed');
-    // });
-    const post: Post = { id: 0, author: '', content: 'Contenu du post', like: 0, comments: [] };
-    this.postService.createPost(post).subscribe(() => {}, () => {}, () => this.posts.unshift(post));
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('result:', result, '.')
+      if (result !== undefined) {
+        const post: Post = { id: 0, author: '', content: result, like: 0, comments: [] };
+        this.postService.createPost(post).subscribe(
+          () => { if (!this.posts.map(x => x.id).includes(post.id)) { this.posts.unshift(post); } });
+      }
+      console.log('The dialog was closed');
+    });
   }
 
   removeItem(id: number): void {

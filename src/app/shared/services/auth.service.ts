@@ -1,3 +1,4 @@
+import { EMPTY, Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -13,11 +14,20 @@ export class AuthService {
     return this.log;
   }
 
-  login(): void {
+  login(): Observable<any> {
     this.log = true;
+    throw new Error('Method not implemented.');
   }
 
   logout(): void {
     this.log = false;
+  }
+
+  isAuthenticated(): boolean {
+    throw new Error('Method not implemented.');
+  }
+
+  register(arg0: any): Observable<any> {
+    throw new Error('Method not implemented.');
   }
 }

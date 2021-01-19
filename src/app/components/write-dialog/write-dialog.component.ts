@@ -10,7 +10,6 @@ import { Post } from 'src/app/shared/models/post.model';
 })
 export class WriteDialogComponent {
 
-  title = new FormControl('');
   content = new FormControl('');
 
   constructor(
@@ -22,7 +21,7 @@ export class WriteDialogComponent {
     // const newPost: Post = { title: this.title.value, content: this.content.value, id: 0, like: 0 };
     // console.log('create : ', newPost);
     // this.postService.createPost(newPost).subscribe((data: Post[]) => this.posts = data);
-    this.dialogRef.close();
+    this.dialogRef.close(this.content.value);
   }
 
   onClose(): void {
