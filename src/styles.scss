@@ -1,29 +1,88 @@
-/* You can add global styles to this file, and also import other style files */
+@import 'styles/variables';
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; min-width: 520px; }
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  min-width: 520px;
+}
 
 .centered {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    -moz-transform: translate(-50%, -50%);
-    -o-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    padding: 5px;
-    z-index: 100;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -moz-transform: translate(-50%, -50%);
+  -o-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  padding: 5px;
+  z-index: 100;
 }
 
 .full-width {
-    width: 100%;
+  width: 100%;
 }
 
 .textCentered {
-    text-align: center;
+  text-align: center;
 }
 
 .hover {
+  cursor: pointer;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-column {
+  display: flex !important;
+  flex-direction: column;
+}
+
+.flex-row {
+  display: flex !important;
+  flex-direction: row;
+}
+
+.flex-content-start {
+  justify-content: flex-start;
+}
+
+.flex-content-end {
+  justify-content: flex-end;
+}
+
+.flex-content-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-content-end-spacer {
+  flex: 1 1 auto;
+}
+
+.page-container {
+  padding: 15px;
+}
+
+.spacer {
+  display: flex;
+  flex: 1 1 auto;
+}
+
+a {
+  color: $primary;
+  text-decoration: none;
+
+  &:hover {
     cursor: pointer;
+    color: $accent;
+    text-decoration: underline;
+  }
 }
