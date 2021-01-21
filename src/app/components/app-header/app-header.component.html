@@ -2,8 +2,8 @@
   <mat-toolbar-row>
     <span class='hover' [routerLink]="['/']">{{ title }}</span>
     <span class="spacer"></span>
-    <span>{{ authService.isLoggedIn() }}</span>
     <mat-menu #userMenu="matMenu">
+      <a mat-menu-item (click)="register()">Register</a>
       <a mat-menu-item (click)="login()">Login</a>
       <a mat-menu-item (click)="logout()">Logout</a>
       <a mat-menu-item [routerLink]="['/auth/user']">User Profile</a>

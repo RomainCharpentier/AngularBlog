@@ -3,10 +3,13 @@ import { HttpRequest, HttpResponse, HttpHandler, HttpEvent, HttpInterceptor, HTT
 import { Observable, of, throwError } from 'rxjs';
 import { delay, mergeMap, materialize, dematerialize } from 'rxjs/operators';
 import { Post } from '../shared/models/post.model';
+import { User } from '../shared/models/user.model';
 
-localStorage.setItem('login', 'Romain');
+localStorage.setItem('user', '{}');
 localStorage.setItem('posts', '[]');
-let user: string = localStorage.getItem('login') || '';
+localStorage.setItem('users', '[]');
+let user: User = JSON.parse(localStorage.getItem('user') || '') || '';
+let users: User[] = JSON.parse(localStorage.getItem('users') || '[]') || [];
 let posts: Post[] = JSON.parse(localStorage.getItem('posts') || '[]') || [];
 
 @Injectable()
@@ -27,6 +30,10 @@ export class FakeBackendInterceptor implements HttpInterceptor {
                     return getPosts();
                 case url.endsWith('/post') && method === 'PUT':
                     return createPost();
+                case url.endsWith('/auth') && method === 'POST':
+                    return getUser();
+                case url.endsWith('/auth') && method === 'PUT':
+                    return createUser();
                 default:
                     // pass through any requests not handled above
                     return next.handle(request);
@@ -36,25 +43,44 @@ export class FakeBackendInterceptor implements HttpInterceptor {
         // route functions
 
         function getPosts(): Observable<HttpResponse<Post[]>> {
-            // if (!isLoggedIn()) {
-            //     return unauthorized();
-            // }
             return ok(posts);
         }
 
         function createPost(): Observable<HttpResponse<Post[]>> {
             const post: Post = body;
             post.id = posts.length ? Math.max(...posts.map(x => x.id)) + 1 : 1;
-            post.author = user;
+            post.author = user.first_name + ' ' + user.last_name;
             post.like = 0;
             posts.push(post);
             localStorage.setItem('posts', JSON.stringify(posts));
             return ok();
         }
 
+        function getUser(): Observable<HttpResponse<User>> {
+            console.log(body);
+            const email: string = body;
+            const userFound: User = users.find(x => x.email === email) as User;
+            console.log(users);
+            console.log(userFound);
+            if (userFound !== undefined) {
+                user = userFound;
+                localStorage.setItem('user', JSON.stringify(user));
+                return ok(userFound);
+            }
+            return error('Utilisateur inexistant pour le mail : ' + email);
+        }
+
+        function createUser(): Observable<HttpResponse<User[]>> {
+            const user: User = body;
+            user.id = users.length ? Math.max(...posts.map(x => x.id)) + 1 : 1;
+            users.push(user);
+            localStorage.setItem('users', JSON.stringify(users));
+            return ok();
+        }
+
         // helper functions
 
-        function ok(body?: Post[]): Observable<HttpResponse<Post[]>> {
+        function ok(body?: any): Observable<HttpResponse<any>> {
             return of(new HttpResponse({ status: 200, body }));
         }
 

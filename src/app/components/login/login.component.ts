@@ -81,6 +81,10 @@ export class LoginComponent implements OnInit, OnDestroy {
     //     this.uiService.notifyUserShowSnackbar(`Welcome to ${PROJECT_NAME}!`);
     //     this.router.navigateByUrl('/');
     //   }));
+    this.authService.login(this.email.value).subscribe(() => {
+      console.log("okddd");
+      this.router.navigate(['/']);
+    }, error => console.log(error));
   }
 
   /**
